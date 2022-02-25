@@ -14,6 +14,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
          // BooksTableSeederを読み込むように指定
-         $this->call(BooksTableSeeder::class);
+         //$this->call(BooksTableSeeder::class);
+
+         //LicensesTaableSeederを読み込むように指定
+         $this->call(LicensesTableSeeder::class);
     }
 }
