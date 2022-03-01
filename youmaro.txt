@@ -1,1 +1,1 @@
-test
+CentOS Stream 8
