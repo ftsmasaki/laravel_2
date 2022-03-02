@@ -1,5 +1,3 @@
-<!--テスト-->
-
 <div class="row">
     <div class="col-md-8">
         @include('license/message')
@@ -34,7 +32,12 @@
                 </div>
                 <div class="form-group">
                     <label for="is_notify">通知</label>
-                    <input type="number" class="form-control" name="is_notify" value="{{ $license->is_notify }}">
+                    <!--<input type="checkbox" class="form-check-input" name="is_notify" value="{{ $license->is_notify }}">-->
+                    @if ($license['is_notify'] === 1)
+                    <input type="checkbox" class="form-check-input" name="is_notify" value="1" checked="checked">
+                    @else
+                    <input type="checkbox" class="form-check-input" name="is_notify" value="0">
+                    @endif
                 </div>
             </div>
 

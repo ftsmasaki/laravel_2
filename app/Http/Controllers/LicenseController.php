@@ -9,68 +9,69 @@ use Illuminate\Pagination\Paginator;
 
 class LicenseController extends Controller
 {
-  public function index()
-  {
-      // DBよりBookテーブルの値を全て取得
-      $licenses = License::all();
-      $licenses = License::sortable()->paginate(10);//1ページに10件表示
-      
-      // 取得した値をビュー「book/license」に渡す
-      return view('license/index')->with('licenses', $licenses);
-  }
+    public function index()
+    {
+        // DBよりBookテーブルの値を全て取得
+        $licenses = License::all();
+        $licenses = License::sortable()->paginate(10);//1ページに10件表示
+       
+        // 取得した値をビュー「book/license」に渡す
+        return view('license/index')->with('licenses', $licenses);
+    }
 
-  public function edit($id)
-  {
-      // DBよりURIパラメータと同じIDを持つBookの情報を取得
-      $license = License::findOrFail($id);
+    public function edit($id)
+    {
+        // DBよりURIパラメータと同じIDを持つBookの情報を取得
+        $license = License::findOrFail($id);
 
-      // 取得した値をビュー「book/edit」に渡す
-      return view('license/edit', compact('license'));
-  }
+        // 取得した値をビュー「book/edit」に渡す
+        return view('license/edit', compact('license'));
+        
+    }
 
-  public function update(LicenseRequest $request, $id)
-  {
-      $license = License::findOrFail($id);
-      $license->product_name = $request->product_name;
-      $license->product_key = $request->product_key;
-      $license->expire_date = $request->expire_date;
-      $license->purchase_date = $request->purchase_date;
-      $license->is_notify = $request->is_notify;
-      $license->save();
-  
-      return redirect("/license");
-  }
+    public function update(LicenseRequest $request, $id)
+    {
+        $license = License::findOrFail($id);
+        $license->product_name = $request->product_name;
+        $license->product_key = $request->product_key;
+        $license->expire_date = $request->expire_date;
+        $license->purchase_date = $request->purchase_date;
+        $license->is_notify = $request->is_notify;
+        $license->save();
 
-  public function destroy($id)
-  {
-      $license = License::findOrFail($id);
-      $license->delete();
-  
-      return redirect("/license");
-  }
+        return redirect("/license");
+    }
 
-  public function create()
-  {
-      // 空の$licenseを渡す
-      $license = new License();
-      return view('license/create', compact('license'));
-  }
-  
-  public function store(LicenseRequest $request)
-  {
-      $license = new License();
-      $license->product_name = $request->product_name;
-      $license->product_key = $request->product_key;
-      $license->expire_date = $request->expire_date;
-      $license->purchase_date = $request->purchase_date;
-      $license->is_notify = $request->is_notify;
-      $license->save();
-  
-      return redirect("/license");
-  }
+    public function destroy($id)
+    {
+        $license = License::findOrFail($id);
+        $license->delete();
 
-  public function show($id)
-  {
-      return view('license', ['license' => License::findOrFail($id)]);
-  }
+        return redirect("/license");
+    }
+
+    public function create()
+    {
+        // 空の$licenseを渡す
+        $license = new License();
+        return view('license/create', compact('license'));
+    }
+
+    public function store(LicenseRequest $request)
+    {
+        $license = new License();
+        $license->product_name = $request->product_name;
+        $license->product_key = $request->product_key;
+        $license->expire_date = $request->expire_date;
+        $license->purchase_date = $request->purchase_date;
+        $license->is_notify = $request->is_notify;
+        $license->save();
+
+        return redirect("/license");
+    }
+
+    public function show($id)
+    {
+        return view('license', ['license' => License::findOrFail($id)]);
+    }
 }
