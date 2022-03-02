@@ -18,6 +18,7 @@
             <th>@sortablelink('product_key', 'プロダクトキー')</th>
             <th>@sortablelink('expire_date', '有効期限')</th>
             <th>@sortablelink('purchase_date', '購入日')</th>
+            <th>割当数</th>
             <th>通知</th>
             <th>削除</th>
           </tr>
@@ -31,6 +32,7 @@
           <td>{{ $license->product_key }}</td>
           <td>{{ $license->expire_date }}</td>
           <td>{{ $license->purchase_date }}</td>
+          <td>{{ $license->seats }}</td>
           <td>{{ $license->is_notify }}</td>
           <td>
             <form action="/license/{{ $license->id }}" method="post">
@@ -48,8 +50,8 @@
         @endforeach
       </table>
     </div>
-    <div class="mb-4"><a href="/license/create" class="btn btn-primary">新規作成</a></div>
-    <div>{{ $licenses->appends(request()->query())->links() }}</div>
+    <div class="mb-4 text-end"><a href="/license/create" class="btn btn-primary">新規作成</a></div>
+    <div class="mb-4 d-flex justify-content-center">{{ $licenses->appends(request()->query())->links() }}</div>
   </div>
 </div>
 @endsection

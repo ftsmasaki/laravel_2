@@ -26,8 +26,8 @@ class LicenseRequest extends FormRequest
         return [
             'product_name' => 'required|string|max:50',
             'product_key' => 'required|string|max:50',
-            'expire_date' => 'required|date',
-            'purchase_date' => 'required|date',
+            'expire_date' => 'nullable|date',
+            'purchase_date' => 'nullable|date',
         ];
     }
 }
