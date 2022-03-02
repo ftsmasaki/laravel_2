@@ -6,13 +6,20 @@
       <table class="table text-center align-middle">
         <thead class="table-dark">
           <tr>
-            <th class="">ID</th>
-            <th class="">製品名</th>
-            <th class="">プロダクトキー</th>
-            <th class="">有効期限</th>
-            <th class="">購入日</th>
-            <th class="">通知</th>
-            <th class="">削除</th>
+            <!-- column-sortable導入前のthタグ
+            <th>ID</th>
+            <th>製品名</th>
+            <th>プロダクトキー</th>
+            <th>有効期限</th>
+            <th>購入日</th>
+            -->
+            <th>@sortablelink('id', 'ID')</th>
+            <th>@sortablelink('product_name', '製品名')</th>
+            <th>@sortablelink('product_key', 'プロダクトキー')</th>
+            <th>@sortablelink('expire_date', '有効期限')</th>
+            <th>@sortablelink('purchase_date', '購入日')</th>
+            <th>通知</th>
+            <th>削除</th>
           </tr>
         </thead>
         @foreach($licenses as $license)

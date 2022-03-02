@@ -11,10 +11,18 @@ class LicenseController extends Controller
   public function index()
   {
       // DBよりBookテーブルの値を全て取得
-      $licenses = License::all();
+      //column-sortable導入前
+      //$licenses = License::all();
 
+      //column-sortable導入後
+      $licenses = License::sortable()->get();
+      
       // 取得した値をビュー「book/license」に渡す
+      //column-sortable導入前
       return view('license/index', compact('licenses'));
+
+      //column-sortable導入後
+      return view('license/index')->with('licenses', $licenses);
   }
 
   public function edit($id)
