@@ -2,7 +2,7 @@
 @section('content')
 <div class="row">
   <div class="col-12">
-    <div class="table-responsive">
+    <div class="table-responsive mb-4">
       <table class="table text-center align-middle">
         <thead class="table-dark">
           <tr>
@@ -48,7 +48,8 @@
         @endforeach
       </table>
     </div>
-    <div><a href="/license/create" class="btn btn-primary">新規作成</a></div>
+    <div class="mb-4"><a href="/license/create" class="btn btn-primary">新規作成</a></div>
+    <div>{{ $licenses->appends(request()->query())->links() }}</div>
   </div>
 </div>
 @endsection

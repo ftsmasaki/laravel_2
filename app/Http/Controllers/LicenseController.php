@@ -5,23 +5,17 @@ namespace App\Http\Controllers;
 use App\Http\Requests\LicenseRequest;
 use App\Http\Controllers\Controller;
 use App\Models\License;
+use Illuminate\Pagination\Paginator;
 
 class LicenseController extends Controller
 {
   public function index()
   {
       // DBよりBookテーブルの値を全て取得
-      //column-sortable導入前
-      //$licenses = License::all();
-
-      //column-sortable導入後
-      $licenses = License::sortable()->get();
+      $licenses = License::all();
+      $licenses = License::sortable()->paginate(10);//1ページに10件表示
       
       // 取得した値をビュー「book/license」に渡す
-      //column-sortable導入前
-      return view('license/index', compact('licenses'));
-
-      //column-sortable導入後
       return view('license/index')->with('licenses', $licenses);
   }
 

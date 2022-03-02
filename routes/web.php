@@ -16,7 +16,8 @@ use App\Http\Controllers\LicenseController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome');//デフォルト：welcome.blade.phpを表示する
+    //return view('license/index');//license/index.blade.phpを表示する
 });
 
 Route::resource('book', BookController::class);
