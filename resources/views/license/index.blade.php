@@ -6,13 +6,6 @@
       <table class="table text-center align-middle">
         <thead class="table-dark">
           <tr>
-            <!-- column-sortable導入前のthタグ
-            <th>ID</th>
-            <th>製品名</th>
-            <th>プロダクトキー</th>
-            <th>有効期限</th>
-            <th>購入日</th>
-            -->
             <th>@sortablelink('id', 'ID')</th>
             <th>@sortablelink('product_name', '製品名')</th>
             <th>@sortablelink('product_key', 'プロダクトキー')</th>
