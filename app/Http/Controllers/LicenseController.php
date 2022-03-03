@@ -54,6 +54,7 @@ class LicenseController extends Controller
     {
         // 空の$licenseを渡す
         $license = new License();
+        $license->is_notify = 1;
         return view('license/create', compact('license'));
     }
 

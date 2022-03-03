@@ -32,12 +32,8 @@
                 </div>
                 <div class="form-group">
                     <label for="is_notify">通知</label>
-                    <!--<input type="checkbox" class="form-check-input" name="is_notify" value="{{ $license->is_notify }}">-->
-                    @if ($license['is_notify'] === 1)
-                    <input type="checkbox" class="form-check-input" name="is_notify" value="1" checked="checked">
-                    @else
-                    <input type="checkbox" class="form-check-input" name="is_notify" value="0">
-                    @endif
+                    <input type="hidden" class="form-check-input" name="is_notify" value="0">
+                    <input type="checkbox" class="form-check-input" name="is_notify" {{ $license->is_notify == '1' ? ' checked="checked"' : '' }}" value="1">
                 </div>
             </div>
 
