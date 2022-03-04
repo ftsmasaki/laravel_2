@@ -1,14 +1,15 @@
 <div class="row">
-    <div class="col-md-8">
+    <div class="">
         <!-- エラーメッセージ -->
         @include('license/message')
 
         <!-- 2個分のタブ -->
-        <ul class="nav nav-tabs mb-2">
+        <ul class="nav nav-tabs mb-2 col-md-8">
             <li class="nav-item">
                 <a href="#tab-edit" class="nav-link active" data-toggle="tab">編集</a>
             </li>
-            <li class="nav-item">
+            <!-- 現状、非表示 -->
+            <li class="nav-item d-none">
                 <a href="#tab-seats" class="nav-link" data-toggle="tab">割り当て</a>
             </li>
         </ul>
@@ -53,15 +54,32 @@
                         </div>
                     </div>
 
-                    <div class="mb-4 text-end">
-                        <button type="submit" class="btn btn-primary">登録</button>
-                        <a href="/license" class="btn btn-primary">戻る</a>
-                    </div>
                 </form>
             </div>
-            <div id="tab-seats" class="tab-pane">
+
+            <!-- 現状、非表示 -->
+            <div id="tab-seats" class="tab-pane d-none">
                 割り当てタブ
             </div>
+
+        </div>
+
+        <!-- 1個分のタブ -->
+        <ul class="nav nav-tabs mb-2 col-md-8">
+            <li class="nav-item">
+                <a href="#tab-seats" class="nav-link active" data-toggle="tab">割り当て</a>
+            </li>
+        </ul>
+
+        <!-- コンテンツ部分 -->
+        <div class="tab-content">
+           <div id="tab-seats" class="tab-pane active">
+            </div>
+
+            <div class="col-md-8 mb-4 text-end">
+                <button type="submit" class="btn btn-primary">登録</button>
+                <a href="/license" class="btn btn-primary">戻る</a>
+            </div> 
         </div>
     </div>
 </div>
