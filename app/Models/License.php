@@ -15,4 +15,7 @@ class License extends Model
     protected $fillable = [ 'id','product_name','product_key','expire_date','purchase_date' ];
     public $sortable = [ 'id','product_name','product_key','expire_date','purchase_date' ];//ソートに使うカラムを指定
 
+    public function product() {
+        return $this->belongsTo(Product::class);
+    }
 }
