@@ -20,16 +20,16 @@ class ProductsTableSeeder extends Seeder
 
         //データを手動で作成
         // 初期データ用意
-         $products = [
-             ['product_name' => 'ESET Internet Security'],
-             ['product_name' => 'Microsoft Office Home & Business 2019'],
-             ['product_name' => 'YMS-VPN8'],
-         ];
+        $products = [
+            ['product_name' => 'ESET Internet Security'],
+            ['product_name' => 'Microsoft Office Home & Business 2019'],
+            ['product_name' => 'YMS-VPN8'],
+        ];
 
         // 登録
-         foreach($products as $product) {
-             \App\Models\Product::create($product);
-         }
+        foreach($products as $product) {
+            Product::create($product);
+        }
 
     }
 }
