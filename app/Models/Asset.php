@@ -13,4 +13,9 @@ class Asset extends Model
     {
         return $this->belongsTo(Customer::class);
     }
+
+    public function licenseseats()
+    {
+        return $this->hasMany(LicenseSeat::class);
+    }
 }
