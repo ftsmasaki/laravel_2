@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\LicenseController;
+use App\Http\Controllers\LicenseSeatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,11 +16,12 @@ use App\Http\Controllers\LicenseController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');//デフォルト：welcome.blade.phpを表示する
-    //return view('license/index');//license/index.blade.phpを表示する
-});
+//Route::get('/', function () {
+//    return view('welcome');//デフォルト：welcome.blade.phpを表示する
+//});
 
-Route::resource('book', BookController::class);
+//Route::resource('book', BookController::class);
 
+//Route::resource('/', LicenseController::class);
 Route::resource('license', LicenseController::class);
+//Route::resource('license', LicenseSeatController::class);

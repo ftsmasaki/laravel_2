@@ -27,7 +27,11 @@
                     <div class="mb-4">
                         <div class="form-group d-flex mb-2">
                             <div class="col-md-2 d-flex align-items-center"><label for="product_name">製品名</label></div>
-                            <div class="col-md-6"><input type="text" class="form-control" name="product_name" value="{{ $license->product_name }}"></div>
+                            @if($target == 'store')
+                            <div class="col-md-6"><input type="text" class="form-control" name="product_name" value=""></div>
+                            @elseif($target == 'update')
+                            <div class="col-md-6"><input type="text" class="form-control" name="product_name" value="{{ $license->product->product_name }}"></div>
+                            @endif
                         </div>
                         <div class="form-group d-flex mb-2">
                             <div class="col-md-2 d-flex align-items-center"><label for="product_key">プロダクトキー</label></div>
@@ -54,6 +58,10 @@
                         </div>
                     </div>
 
+                    <div class="col-md-8 mb-4 text-end">
+                        <button type="submit" class="btn btn-primary">登録</button>
+                        <a href="/license" class="btn btn-primary">戻る</a>
+                    </div>
                 </form>
             </div>
 
@@ -75,11 +83,6 @@
         <div class="tab-content">
            <div id="tab-seats" class="tab-pane active">
             </div>
-
-            <div class="col-md-8 mb-4 text-end">
-                <button type="submit" class="btn btn-primary">登録</button>
-                <a href="/license" class="btn btn-primary">戻る</a>
-            </div> 
         </div>
     </div>
 </div>

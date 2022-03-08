@@ -11,20 +11,25 @@ class LicenseController extends Controller
 {
     public function index()
     {
-        // DBよりBookテーブルの値を全て取得
+        // DBよりLicenseテーブルの値を全て取得
         $licenses = License::all();
         $licenses = License::sortable()->paginate(10);//1ページに10件表示
        
-        // 取得した値をビュー「book/license」に渡す
-        return view('license/index')->with('licenses', $licenses);
+        //現在のページを変数に格納
+        //$current_page = 'license';
+        
+        // 取得した値をビュー「license/index」に渡す
+        return view('license/index', compact('licenses'));
+        //return view('license/index')->with('licenses', $licenses); //withメソッドで渡す
+
     }
 
     public function edit($id)
     {
-        // DBよりURIパラメータと同じIDを持つBookの情報を取得
+        // DBよりURIパラメータと同じIDを持つLicenseの情報を取得
         $license = License::findOrFail($id);
 
-        // 取得した値をビュー「book/edit」に渡す
+        // 取得した値をビュー「license/edit」に渡す
         return view('license/edit', compact('license'));
         
     }
@@ -32,7 +37,7 @@ class LicenseController extends Controller
     public function update(LicenseRequest $request, $id)
     {
         $license = License::findOrFail($id);
-        $license->product_name = $request->product_name;
+        //$license->product->product_name = $request->product_name;
         $license->product_key = $request->product_key;
         $license->expire_date = $request->expire_date;
         $license->purchase_date = $request->purchase_date;
@@ -53,6 +58,9 @@ class LicenseController extends Controller
     public function create()
     {
         // 空の$licenseを渡す
+        //$license = new License();
+        //return view('license/create', compact('license'));
+
         $license = new License();
         return view('license/create', compact('license'));
     }
@@ -60,7 +68,7 @@ class LicenseController extends Controller
     public function store(LicenseRequest $request)
     {
         $license = new License();
-        $license->product_name = $request->product_name;
+        //$license->product_name = $request->product_name;
         $license->product_key = $request->product_key;
         $license->expire_date = $request->expire_date;
         $license->purchase_date = $request->purchase_date;
