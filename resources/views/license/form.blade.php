@@ -75,7 +75,7 @@
         <!-- 1個分のタブ -->
         <ul class="nav nav-tabs mb-2 col-md-8">
             <li class="nav-item">
-                <a href="#tab-seats" class="nav-link active" data-toggle="tab">割り当て</a>
+                <a href="#tab-seats" class="nav-link active" data-toggle="tab">割当て先</a>
             </li>
         </ul>
 
