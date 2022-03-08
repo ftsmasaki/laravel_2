@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\LicenseController;
-use App\Http\Controllers\LicenseSeatController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,4 +24,4 @@ use App\Http\Controllers\LicenseSeatController;
 
 //Route::resource('/', LicenseController::class);
 Route::resource('license', LicenseController::class);
-//Route::resource('license', LicenseSeatController::class);
+Route::resource('product', ProductController::class);

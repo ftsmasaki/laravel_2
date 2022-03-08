@@ -1,28 +1,24 @@
-@extends('book/layout')
+@extends('product/layout')
 @section('content')
 <div class="row">
   <div class="col-12">
-    <div class="table-responsive">
+    <div class="table-responsive mb-4">
       <table class="table text-center align-middle">
         <thead class="table-dark">
           <tr>
-            <th class="">ID</th>
-            <th class="">書籍名</th>
-            <th class="">価格</th>
-            <th class="">著者</th>
-            <th class="">削除</th>
+            <th>@sortablelink('id', 'ID')</th>
+            <th>@sortablelink('product_name', '製品名')</th>
+            <th>削除</th>
           </tr>
         </thead>
-        @foreach($books as $book)
+        @foreach($products as $product)
         <tr>
           <td>
-            <a href="/book/{{ $book->id }}/edit" class="text-decoration-none">{{ $book->id }}</a>
+            <a href="/product/{{ $product->id }}/edit" class="text-decoration-none">{{ $product->id }}</a>
           </td>
-          <td>{{ $book->name }}</td>
-          <td>{{ $book->price }}</td>
-          <td>{{ $book->author }}</td>
+          <td>{{ $product->product_name }}</td>
           <td>
-            <form action="/book/{{ $book->id }}" method="post">
+            <form action="/product/{{ $product->id }}" method="post">
               <input type="hidden" name="_method" value="DELETE">
               <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <button type="submit" class="btn btn-xs btn-danger" aria-label="Left Align">
@@ -37,7 +33,8 @@
         @endforeach
       </table>
     </div>
-    <div><a href="/book/create" class="btn btn-primary">新規作成</a></div>
+    <div class="mb-4 text-end"><a href="/product/create" class="btn btn-primary">新規作成</a></div>
+    <div class="mb-4 d-flex justify-content-center">{{ $products->appends(request()->query())->links() }}</div>
   </div>
 </div>
 @endsection
