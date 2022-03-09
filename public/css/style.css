@@ -41,13 +41,12 @@
 /* 削除ボタンの余白を削除
 ***********************************/
 form {
-  margin-block-end:0;
+  margin-block-end: 0;
 }
 
 /* column-sortable　テーブルヘッダのリンク文字色を変更
 ***********************************/
-
 th a{
-  color:white;
+  color: white;
   text-decoration: none;
 }

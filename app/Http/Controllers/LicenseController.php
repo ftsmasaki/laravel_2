@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\LicenseRequest;
 use App\Http\Controllers\Controller;
 use App\Models\License;
+use App\Models\Product;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\DB;
 
 class LicenseController extends Controller
 {
@@ -37,10 +39,11 @@ class LicenseController extends Controller
     public function update(LicenseRequest $request, $id)
     {
         $license = License::findOrFail($id);
-        //$license->product->product_name = $request->product_name;
+        $license->product_id = $request->input('1')->get('id');//テスト中
         $license->product_key = $request->product_key;
         $license->expire_date = $request->expire_date;
         $license->purchase_date = $request->purchase_date;
+        $license->seats = $request->seats;
         $license->is_notify = $request->is_notify;
         $license->save();
 
@@ -62,16 +65,19 @@ class LicenseController extends Controller
         //return view('license/create', compact('license'));
 
         $license = new License();
-        return view('license/create', compact('license'));
+        $products = Product::all();
+        return view('license/create', compact('license','products'));
     }
 
     public function store(LicenseRequest $request)
     {
         $license = new License();
-        //$license->product_name = $request->product_name;
+        //$license->product_id = $request->product_name_choice;//テスト中*
+        $license->product_id = DB::table('products')->where('product_name', $request->product_name_choice)->value('id');
         $license->product_key = $request->product_key;
         $license->expire_date = $request->expire_date;
         $license->purchase_date = $request->purchase_date;
+        $license->seats = $request->seats;
         $license->is_notify = $request->is_notify;
         $license->save();
 

@@ -24,7 +24,7 @@ class LicenseRequest extends FormRequest
     public function rules()
     {
         return [
-            'product_name' => 'required|string|max:191',
+            //'product_name' => 'required|string|max:191',
             'product_key' => 'required|string|max:191',
             'expire_date' => 'required|date',
             'purchase_date' => 'required|date',
