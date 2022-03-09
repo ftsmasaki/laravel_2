@@ -27,25 +27,18 @@
                     <div class="mb-4">
                         <div class="form-group d-flex mb-2">
                             <div class="col-md-2 d-flex align-items-center"><label for="product_name">製品名</label></div>
-                            @if($target == 'store')
                             <div class="col-md-6">
+                                @if($target == 'store')
                                 <input class="form-control" list="product_name" id="product_name_choice" name="product_name_choice" />
-                                <datalist id="product_name">
-                                    @foreach($products as $product)
-                                    <option value="{{ $product->product_name }}" id="{{ $product->id }}"></option>
-                                    @endforeach
-                                </datalist>
-                            </div>
-                            @elseif($target == 'update')
-                            <div class="col-md-6">
+                                @elseif($target == 'update')
                                 <input class="form-control" list="product_name" id="product_name_choice" name="product_name_choice" value="{{ $license->product->product_name }}" />
+                                @endif
                                 <datalist id="product_name">
                                     @foreach($products as $product)
                                     <option value="{{ $product->product_name }}" id="{{ $product->id }}"></option>
                                     @endforeach
                                 </datalist>
                             </div>
-                            @endif
                         </div>
                         <div class="form-group d-flex mb-2">
                             <div class="col-md-2 d-flex align-items-center"><label for="product_key">プロダクトキー</label></div>
