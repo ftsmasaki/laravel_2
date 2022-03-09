@@ -32,14 +32,15 @@ class LicenseController extends Controller
         $license = License::findOrFail($id);
 
         // 取得した値をビュー「license/edit」に渡す
-        return view('license/edit', compact('license'));
+        $products = Product::all();
+        return view('license/edit', compact('license','products'));
         
     }
 
     public function update(LicenseRequest $request, $id)
     {
         $license = License::findOrFail($id);
-        $license->product_id = $request->input('1')->get('id');//テスト中
+        $license->product_id = DB::table('products')->where('product_name', $request->product_name_choice)->value('id');
         $license->product_key = $request->product_key;
         $license->expire_date = $request->expire_date;
         $license->purchase_date = $request->purchase_date;
@@ -60,10 +61,6 @@ class LicenseController extends Controller
 
     public function create()
     {
-        // 空の$licenseを渡す
-        //$license = new License();
-        //return view('license/create', compact('license'));
-
         $license = new License();
         $products = Product::all();
         return view('license/create', compact('license','products'));
@@ -72,7 +69,6 @@ class LicenseController extends Controller
     public function store(LicenseRequest $request)
     {
         $license = new License();
-        //$license->product_id = $request->product_name_choice;//テスト中*
         $license->product_id = DB::table('products')->where('product_name', $request->product_name_choice)->value('id');
         $license->product_key = $request->product_key;
         $license->expire_date = $request->expire_date;
