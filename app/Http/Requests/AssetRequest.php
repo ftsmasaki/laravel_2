@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LicenseRequest extends FormRequest
+class AssetRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,9 @@ class LicenseRequest extends FormRequest
     public function rules()
     {
         return [
-            //'product_id' => 'required|integer',
-            'product_key' => 'required|string|max:191',
-            'expire_date' => 'required|date',
-            'purchase_date' => 'required|date',
-            'seats' => 'required|integer',
+            'customer_id' => 'required|integer',
+            'asset_name' => 'required|string|max:191',
+            'asset_user_name' => 'required|string|max:191',
         ];
     }
 }

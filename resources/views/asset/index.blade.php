@@ -1,4 +1,4 @@
-@extends('product/layout')
+@extends('asset/layout')
 @section('content')
 <div class="row">
   <div class="col-12">
@@ -7,18 +7,22 @@
         <thead class="table-dark align-middle">
           <tr>
             <th>@sortablelink('id', 'ID')</th>
-            <th>@sortablelink('product_name', '製品名')</th>
+            <th>@sortablelink('customer_name', '顧客名')</th>
+            <th>@sortablelink('asset_name', '資産名')</th>
+            <th>@sortablelink('asset_user_name', 'ユーザー名')</th>
             <th>削除</th>
           </tr>
         </thead>
-        @foreach($products as $product)
+        @foreach($assets as $asset)
         <tr>
           <td>
-            <a href="/product/{{ $product->id }}/edit" class="text-decoration-none">{{ $product->id }}</a>
+            <a href="/asset/{{ $asset->id }}/edit" class="text-decoration-none">{{ $asset->id }}</a>
           </td>
-          <td>{{ $product->product_name }}</td>
+          <td>{{ $asset->customer->customer_name }}</td>
+          <td>{{ $asset->asset_name }}</td>
+          <td>{{ $asset->asset_user_name }}</td>
           <td>
-            <form action="/product/{{ $product->id }}" method="post">
+            <form action="/asset/{{ $asset->id }}" method="post">
               <input type="hidden" name="_method" value="DELETE">
               <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <button type="submit" class="btn btn-xs btn-danger" aria-label="Left Align">
@@ -33,8 +37,8 @@
         @endforeach
       </table>
     </div>
-    <div class="mb-4 text-end"><a href="/product/create" class="btn btn-primary">新規作成</a></div>
-    <div class="mb-4 d-flex justify-content-center">{{ $products->appends(request()->query())->links() }}</div>
+    <div class="mb-4 text-end"><a href="/asset/create" class="btn btn-primary">新規作成</a></div>
+    <div class="mb-4 d-flex justify-content-center">{{ $assets->appends(request()->query())->links() }}</div>
   </div>
 </div>
 @endsection

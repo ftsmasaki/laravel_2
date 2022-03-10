@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\LicenseController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\AssetController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,4 @@ use App\Http\Controllers\ProductController;
 //Route::resource('/', LicenseController::class);
 Route::resource('license', LicenseController::class);
 Route::resource('product', ProductController::class);
+Route::resource('asset', AssetController::class);

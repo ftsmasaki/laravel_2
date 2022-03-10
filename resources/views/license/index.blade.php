@@ -4,7 +4,7 @@
   <div class="col-12">
     <div class="table-responsive mb-4">
       <table class="table text-center align-middle">
-        <thead class="table-dark">
+        <thead class="table-dark align-middle">
           <tr>
             <th>@sortablelink('id', 'ID')</th>
             <th>@sortablelink('product_name', '製品名')</th>

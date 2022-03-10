@@ -25,7 +25,7 @@
                 @endif
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="mb-4">
-                        <div class="form-group d-flex mb-2">
+                        <div class="form-group d-md-flex mb-2">
                             <div class="col-md-2 d-flex align-items-center"><label for="product_name">製品名</label></div>
                             @if($target == 'store')
                             <div class="col-md-6"><input type="text" class="form-control" name="product_name" value=""></div>
