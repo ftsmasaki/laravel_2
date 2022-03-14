@@ -61,7 +61,7 @@ class AssetController extends Controller
     {
         $asset = new Asset();
 
-        $asset->customer_id = $request->customer_id;
+        $asset->customer_id = $request->customer_id_hidden;
         $asset->asset_name = $request->asset_name;
         $asset->asset_user_name = $request->asset_user_name;
         $asset->save();

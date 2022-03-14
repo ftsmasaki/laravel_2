@@ -24,7 +24,7 @@ class AssetRequest extends FormRequest
     public function rules()
     {
         return [
-            'customer_id' => 'required|integer',
+            'customer_name_choice' => 'required',
             'asset_name' => 'required|string|max:191',
             'asset_user_name' => 'required|string|max:191',
         ];
