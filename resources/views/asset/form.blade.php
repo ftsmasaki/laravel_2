@@ -1,7 +1,5 @@
 <div id="app">
-    <ul v-for="item in items" v-bind:key="item.name">
-        <li>@{{ item.name }}は@{{ item.color }}です。</li>
-    </ul>
+    <example-component></example-component>
 </div>
 
 <div class="row">
@@ -34,17 +32,19 @@
                         <div class="form-group d-md-flex mb-2">
                             <div class="col-md-2 d-flex align-items-center"><label for="customer_name">顧客名</label></div>
                             <div class="col-md-6">
-                                <input type="hidden" id="customer_id_hidden" name="customer_id_hidden" />
                                 @if($target == 'store')
-                                <input class="form-control" list="customer_name" id="customer_name_choice" name="customer_name_choice" />
+                                <div id="app">
+                                    <v-select
+                                        :options="options"
+                                        :reduce="options => options.id"
+                                        v-model="customer_name_choice"
+                                        >
+                                    </v-select>
+                                    選択されているデータ：<span v-text="customer_name_choice"></span>
+                                </div>
                                 @elseif($target == 'update')
                                 <input class="form-control" list="customer_name" id="customer_name_choice" name="customer_name_choice" value="{{ $asset->customer->customer_name }}" />
                                 @endif
-                                <datalist id="customer_name">
-                                    @foreach($customers as $customer)
-                                    <option value="{{ $customer->customer_name }}"></option>
-                                    @endforeach
-                                </datalist>
                             </div>
                         </div>
                         <div class="form-group d-md-flex mb-2">

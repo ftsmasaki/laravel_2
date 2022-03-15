@@ -61,7 +61,7 @@ class AssetController extends Controller
     {
         $asset = new Asset();
 
-        $asset->customer_id = $request->customer_id_hidden;
+        $asset->customer_id = $request->customer_name_choice;
         $asset->asset_name = $request->asset_name;
         $asset->asset_user_name = $request->asset_user_name;
         $asset->save();
@@ -73,4 +73,5 @@ class AssetController extends Controller
     {
         return view('asset', ['asset' => Asset::findOrFail($id)]);
     }
+
 }
