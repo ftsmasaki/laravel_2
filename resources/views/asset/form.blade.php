@@ -1,3 +1,7 @@
+<div id="app">
+    <p>@{{ message }}</p>
+</div>
+
 <div class="row">
     <div class="">
         <!-- エラーメッセージ -->
