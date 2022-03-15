@@ -32,7 +32,10 @@
                                 <!--<input class="form-control" list="customer_name" id="customer_name_choice" name="customer_name_choice" />-->
                                 <div id="app">
                                     <v-select v-bind:options="options" v-model="selected"></v-select>
-                                    <p>値：@{{selected}}</p>
+                                    <p>
+                                        label：@{{selected.label}}
+                                        id：@{{selected.id}}
+                                    </p>
                                 </div>
                                 @elseif($target == 'update')
                                 <input class="form-control" list="customer_name" id="customer_name_choice" name="customer_name_choice" value="{{ $asset->customer->customer_name }}" />
