@@ -5,6 +5,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\LicenseController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AssetController;
+use App\Http\Controllers\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +28,4 @@ use App\Http\Controllers\AssetController;
 Route::resource('license', LicenseController::class);
 Route::resource('product', ProductController::class);
 Route::resource('asset', AssetController::class);
+Route::resource('customer', CustomerController::class);
