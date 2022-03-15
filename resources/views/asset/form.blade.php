@@ -29,15 +29,7 @@
                             <div class="col-md-2 d-flex align-items-center"><label for="customer_name">顧客名</label></div>
                             <div class="col-md-6">
                                 @if($target == 'store')
-                                <div id="app">
-                                    <v-select
-                                        :options="options"
-                                        :reduce="options => options.id"
-                                        v-model="customer_name_choice"
-                                        >
-                                    </v-select>
-                                    選択されているデータ：<span v-text="customer_name_choice"></span>
-                                </div>
+                                <input class="form-control" list="customer_name" id="customer_name_choice" name="customer_name_choice" />
                                 @elseif($target == 'update')
                                 <input class="form-control" list="customer_name" id="customer_name_choice" name="customer_name_choice" value="{{ $asset->customer->customer_name }}" />
                                 @endif

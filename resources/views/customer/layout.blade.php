@@ -8,8 +8,6 @@
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
   <!-- カスタマイズcss -->
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-  <!-- Vue.js-->
-  <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 </head>
 <body>  
   <!-- 上部ナビゲーションバー -->
@@ -57,7 +55,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="/product">
+                <a class="nav-link" href="/product">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-database"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
                   <span class="ml-2">製品</span>
                 </a>
@@ -69,7 +67,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/customer">
+                <a class="nav-link active" href="/customer">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-database"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
                   <span class="ml-2">顧客</span>
                 </a>
@@ -86,6 +84,4 @@
   <!-- Bootstrap5 依存関係 -->
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
-  <!-- Vue.js -->
-  <script src="{{ mix('js/app.js') }}"></script> 
 </body>
