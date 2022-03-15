@@ -64,4 +64,5 @@ class CustomerController extends Controller
     {
         return view('customer', ['customer' => Customer::findOrFail($id)]);
     }
+
 }

@@ -1,7 +1,3 @@
-<div id="app">
-    <example-component></example-component>
-</div>
-
 <div class="row">
     <div class="">
         <!-- エラーメッセージ -->
