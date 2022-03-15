@@ -1,9 +1,15 @@
-const app = {
-    data() {
-      return {
-        message: 'Hello Vue!'
-      }
-    }
-  }
+const VueSelect = window.VueSelect;
 
-Vue.createApp(app).mount('#app')
+Vue.component('v-select', VueSelect.VueSelect)
+
+new Vue({
+  el: '#app',
+  data: {
+    selected: '',
+    options: [
+      'foo',
+      'bar',
+      'baz'
+    ]
+  }
+})

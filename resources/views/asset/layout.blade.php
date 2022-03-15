@@ -8,7 +8,7 @@
   <!-- カスタマイズcss -->
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
   <!-- vue select -->
-  <link rel="stylesheet" href="https://unpkg.com/vue-select@latest/dist/vue-select.css">
+  <link rel="stylesheet" href="https://unpkg.com/vue-select@3.1.0/dist/vue-select.css">
 </head>
 <body>  
   <!-- 上部ナビゲーションバー -->
@@ -86,7 +86,7 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
   <!-- vue select -->
-  <script src="https://unpkg.com/vue@latest"></script>
-  <!--<script src="https://unpkg.com/vue-select@latest"></script> -->
+  <script src="https://unpkg.com/vue@2.6.10"></script>
+  <script src="https://unpkg.com/vue-select@3.1.0"></script> 
   <script src="{{ asset('js/main.js') }}"></script>
 </body>

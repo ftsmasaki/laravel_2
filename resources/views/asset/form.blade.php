@@ -1,7 +1,3 @@
-<div id="app">
-    <p>@{{ message }}</p>
-</div>
-
 <div class="row">
     <div class="">
         <!-- エラーメッセージ -->
@@ -33,7 +29,11 @@
                             <div class="col-md-2 d-flex align-items-center"><label for="customer_name">顧客名</label></div>
                             <div class="col-md-6">
                                 @if($target == 'store')
-                                <input class="form-control" list="customer_name" id="customer_name_choice" name="customer_name_choice" />
+                                <!--<input class="form-control" list="customer_name" id="customer_name_choice" name="customer_name_choice" />-->
+                                <div id="app">
+                                    <v-select v-bind:options="options" v-model="selected"></v-select>
+                                    <p>値：@{{selected}}</p>
+                                </div>
                                 @elseif($target == 'update')
                                 <input class="form-control" list="customer_name" id="customer_name_choice" name="customer_name_choice" value="{{ $asset->customer->customer_name }}" />
                                 @endif
