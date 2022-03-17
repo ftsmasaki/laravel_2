@@ -34,7 +34,7 @@ class AssetController extends Controller
     public function update(AssetRequest $request, $id)
     {
         $asset = Asset::findOrFail($id);
-        $asset->customer_id = DB::table('customers')->where('customer_name', $request->customer_name_choice)->value('id');
+        $asset->customer_id = Customer::where('customer_name', $request->customer_name_choice)->value('id');
         $asset->asset_name = $request->asset_name;
         $asset->asset_user_name = $request->asset_user_name;
         $asset->save();
@@ -53,7 +53,7 @@ class AssetController extends Controller
     public function create()
     {
         $asset = new Asset();
-        $customers = Customer::all();
+        $customers = Customer::select('id', 'customer_name')->get();
         return view('asset/create', compact('asset','customers'));
     }
 
@@ -61,7 +61,7 @@ class AssetController extends Controller
     {
         $asset = new Asset();
 
-        $asset->customer_id = $request->customer_name_choice;
+        $asset->customer_id = $request->selected->id;
         $asset->asset_name = $request->asset_name;
         $asset->asset_user_name = $request->asset_user_name;
         $asset->save();

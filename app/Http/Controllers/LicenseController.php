@@ -40,7 +40,7 @@ class LicenseController extends Controller
     public function update(LicenseRequest $request, $id)
     {
         $license = License::findOrFail($id);
-        $license->product_id = DB::table('products')->where('product_name', $request->product_name_choice)->value('id');
+        $license->product_id = Product::where('product_name', $request->product_name_choice)->value('id');
         $license->product_key = $request->product_key;
         $license->expire_date = $request->expire_date;
         $license->purchase_date = $request->purchase_date;

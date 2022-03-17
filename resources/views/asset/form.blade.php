@@ -31,11 +31,7 @@
                                 @if($target == 'store')
                                 <!--<input class="form-control" list="customer_name" id="customer_name_choice" name="customer_name_choice" />-->
                                 <div id="app">
-                                    <v-select v-bind:options="options" v-model="selected"></v-select>
-                                    <p>
-                                        label：@{{selected.label}}
-                                        id：@{{selected.id}}
-                                    </p>
+                                    <search-customer-component></search-customer-component>
                                 </div>
                                 @elseif($target == 'update')
                                 <input class="form-control" list="customer_name" id="customer_name_choice" name="customer_name_choice" value="{{ $asset->customer->customer_name }}" />

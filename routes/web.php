@@ -18,14 +18,10 @@ use App\Http\Controllers\CustomerController;
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');//デフォルト：welcome.blade.phpを表示する
-//});
-
-//Route::resource('book', BookController::class);
-
-//Route::resource('/', LicenseController::class);
 Route::resource('license', LicenseController::class);
 Route::resource('product', ProductController::class);
 Route::resource('asset', AssetController::class);
 Route::resource('customer', CustomerController::class);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

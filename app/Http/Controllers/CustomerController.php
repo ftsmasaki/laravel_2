@@ -65,4 +65,8 @@ class CustomerController extends Controller
         return view('customer', ['customer' => Customer::findOrFail($id)]);
     }
 
+    public function search_customer()
+    {
+        return Customer::all();
+    }
 }
