@@ -34,6 +34,7 @@
                                     <!--
                                     <example-component></example-component>
                                     <search-customer-component></search-customer-component>
+                                    {{--<v-select name="hoge" :options="options" v-model="selected"></v-select>--}}
                                     -->
                                     <vue-select-component></vue-select-component>
                                 </div>

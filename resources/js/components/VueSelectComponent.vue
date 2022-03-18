@@ -1,11 +1,11 @@
 <template>
    <div>
-      {{selected}}
-      <v-select :value.sync="selected" :options="options" multiple ></v-select>
+      <v-select v-model="selected" :options="options"></v-select>
    </div>
 </template>
 
 <script>
+import VueSelectComponent from 'vue-select';
 export default {
   components: {VueSelectComponent},
   data() {
