@@ -10,6 +10,7 @@
         "production": "mix --production"
     },
     "devDependencies": {
+        "@mdi/font": "^6.5.95",
         "@popperjs/core": "^2.10.2",
         "axios": "^0.21",
         "bootstrap": "^5.1.3",
@@ -24,6 +25,7 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
-        "vue-select": "^3.18.3"
+        "vue-select": "^3.18.3",
+        "vuetify": "^2.6.4"
     }
 }

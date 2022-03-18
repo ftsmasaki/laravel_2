@@ -31,7 +31,11 @@
                                 @if($target == 'store')
                                 <!--<input class="form-control" list="customer_name" id="customer_name_choice" name="customer_name_choice" />-->
                                 <div id="app">
+                                    <!--
+                                    <example-component></example-component>
                                     <search-customer-component></search-customer-component>
+                                    -->
+                                    <vue-select-component></vue-select-component>
                                 </div>
                                 @elseif($target == 'update')
                                 <input class="form-control" list="customer_name" id="customer_name_choice" name="customer_name_choice" value="{{ $asset->customer->customer_name }}" />
