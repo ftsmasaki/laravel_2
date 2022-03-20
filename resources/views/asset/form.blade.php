@@ -31,11 +31,6 @@
                                 @if($target == 'store')
                                 <!--<input class="form-control" list="customer_name" id="customer_name_choice" name="customer_name_choice" />-->
                                 <div id="app">
-                                    <!--
-                                    <example-component></example-component>
-                                    <search-customer-component></search-customer-component>
-                                    {{--<v-select name="hoge" :options="options" v-model="selected"></v-select>--}}
-                                    -->
                                     <vue-select-component></vue-select-component>
                                 </div>
                                 @elseif($target == 'update')

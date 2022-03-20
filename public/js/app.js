@@ -5367,6 +5367,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -5375,8 +5381,16 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       selected: null,
-      options: ['ねこ', 'うし', 'いぬ', 'ぞう', 'とら', 'うま']
+      options: []
     };
+  },
+  created: function created() {
+    var _this = this;
+
+    //インスタンス生成時にapiからタスク一覧を取得して変数に格納
+    axios.get('/api/search_customer').then(function (response) {
+      _this.options = response.data;
+    });
   }
 });
 
@@ -28671,8 +28685,35 @@ var render = function () {
   return _c(
     "div",
     [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.selected,
+            expression: "selected",
+          },
+        ],
+        attrs: { type: "hidden", name: "customer_id" },
+        domProps: { value: _vm.selected },
+        on: {
+          input: function ($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.selected = $event.target.value
+          },
+        },
+      }),
+      _vm._v(" "),
       _c("v-select", {
-        attrs: { options: _vm.options },
+        attrs: {
+          options: _vm.options,
+          label: "customer_name",
+          reduce: function (options) {
+            return options.id
+          },
+        },
         model: {
           value: _vm.selected,
           callback: function ($$v) {
