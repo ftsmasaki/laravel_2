@@ -14,6 +14,11 @@
 import VueSelectComponent from 'vue-select';
 export default {
    components: {VueSelectComponent},
+   props: {
+      asset: {
+         type:Object,
+      },
+   },
    data() {
       return {
          selected: null,
@@ -21,10 +26,12 @@ export default {
       }
    },
    created() {
-      //インスタンス生成時にapiからタスク一覧を取得して変数に格納
+      //インスタンス生成時にapiからCustomerを取得して変数に格納
       axios.get('/api/search_customer').then(response => {
             this.options = response.data
       })
+      //新規作成時にエラーが出るので要対策
+      this.selected = this.asset.customer_id
    },
 }
 </script>

@@ -69,7 +69,7 @@ class LicenseController extends Controller
     public function store(LicenseRequest $request)
     {
         $license = new License();
-        $license->product_id = DB::table('products')->where('product_name', $request->product_name_choice)->value('id');
+        $license->product_id = Product::where('product_name', $request->product_name_choice)->value('id');
         $license->product_key = $request->product_key;
         $license->expire_date = $request->expire_date;
         $license->purchase_date = $request->purchase_date;
@@ -80,8 +80,8 @@ class LicenseController extends Controller
         return redirect("/license");
     }
 
-    public function show($id)
-    {
-        return view('license', ['license' => License::findOrFail($id)]);
-    }
+    // public function show($id)
+    // {
+    //     return view('license', ['license' => License::findOrFail($id)]);
+    // }
 }

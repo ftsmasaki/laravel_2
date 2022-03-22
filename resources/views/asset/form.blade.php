@@ -29,12 +29,9 @@
                             <div class="col-md-2 d-flex align-items-center"><label for="customer_name">顧客名</label></div>
                             <div class="col-md-6">
                                 @if($target == 'store')
-                                <!--<input class="form-control" list="customer_name" id="customer_name_choice" name="customer_name_choice" />-->
-                                <div id="app">
-                                    <vue-select-component></vue-select-component>
-                                </div>
+                                <vue-select-component></vue-select-component>
                                 @elseif($target == 'update')
-                                <input class="form-control" list="customer_name" id="customer_name_choice" name="customer_name_choice" value="{{ $asset->customer->customer_name }}" />
+                                <vue-select-component :asset="{{ $asset }}"></vue-select-component>
                                 @endif
                             </div>
                         </div>

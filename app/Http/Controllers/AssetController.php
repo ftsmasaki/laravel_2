@@ -25,16 +25,13 @@ class AssetController extends Controller
     {
         // DBよりURIパラメータと同じIDを持つAssetの情報を取得
         $asset = Asset::findOrFail($id);
-
-        // 取得した値をビュー「asset/edit」に渡す
-        $customers = Customer::all();
-        return view('asset/edit', compact('asset','customers'));
+        return view('asset/edit', compact('asset'));
     }
 
     public function update(AssetRequest $request, $id)
     {
         $asset = Asset::findOrFail($id);
-        $asset->customer_id = Customer::where('customer_name', $request->customer_name_choice)->value('id');
+        $asset->customer_id = $request->customer_id;
         $asset->asset_name = $request->asset_name;
         $asset->asset_user_name = $request->asset_user_name;
         $asset->save();
@@ -69,9 +66,8 @@ class AssetController extends Controller
         return redirect("/asset");
     }
 
-    public function show($id)
-    {
-        return view('asset', ['asset' => Asset::findOrFail($id)]);
-    }
-
+    // public function show($id)
+    // {
+    //     return view('asset', ['asset' => Asset::findOrFail($id)]);
+    // }
 }
