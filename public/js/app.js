@@ -5380,7 +5380,7 @@ __webpack_require__.r(__webpack_exports__);
     VueSelectComponent: (vue_select__WEBPACK_IMPORTED_MODULE_0___default())
   },
   props: {
-    asset: {
+    laravelObjects: {
       type: Object
     }
   },
@@ -5398,7 +5398,7 @@ __webpack_require__.r(__webpack_exports__);
       _this.options = response.data;
     }); //新規作成時にエラーが出るので要対策
 
-    this.selected = this.asset.customer_id;
+    this.selected = this.laravelObjects.customer_id;
   }
 });
 

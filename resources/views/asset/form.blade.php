@@ -31,7 +31,7 @@
                                 @if($target == 'store')
                                 <vue-select-component></vue-select-component>
                                 @elseif($target == 'update')
-                                <vue-select-component :asset="{{ $asset }}"></vue-select-component>
+                                <vue-select-component :laravel-objects="{{ $asset }}"></vue-select-component>
                                 @endif
                             </div>
                         </div>

@@ -15,7 +15,7 @@ import VueSelectComponent from 'vue-select';
 export default {
    components: {VueSelectComponent},
    props: {
-      asset: {
+      laravelObjects: {
          type:Object,
       },
    },
@@ -31,7 +31,7 @@ export default {
             this.options = response.data
       })
       //新規作成時にエラーが出るので要対策
-      this.selected = this.asset.customer_id
+      this.selected = this.laravelObjects.customer_id
    },
 }
 </script>
