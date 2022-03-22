@@ -5394,7 +5394,7 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     //インスタンス生成時にapiからCustomerを取得して変数に格納
-    axios.get('/api/search_customer').then(function (response) {
+    axios.get('/api/vue_select').then(function (response) {
       _this.options = response.data;
     }); //新規作成時にエラーが出るので要対策
 

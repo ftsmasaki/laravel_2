@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\AssetController;
+use App\Http\Controllers\VueSelectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,4 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/search_customer', [CustomerController::class, 'search_customer']);
+// Route::get('/search_customer', [CustomerController::class, 'search_customer']);
+Route::get('/vue_select', [VueSelectController::class, 'vueSelect']);

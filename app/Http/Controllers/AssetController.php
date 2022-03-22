@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Asset;
 use App\Models\Customer;
 use Illuminate\Pagination\Paginator;
-use Illuminate\Support\Facades\DB;
 
 class AssetController extends Controller
 {
