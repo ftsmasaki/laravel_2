@@ -25,9 +25,14 @@ class AssetRequest extends FormRequest
     public function rules()
     {
         return [
-            'customer_id' => 'required|integer',
-            'asset_name' => 'required|string|max:191',
-            'asset_user_name' => 'required|string|max:191',
+            'customer_id' => ['required','integer'],
+            'asset_name' => ['required','string','max:191'],
+            'asset_user_name' => ['required','string','max:191',
+                Rule::unique('assets')->ignore($this->input('id'))->where(function($query) {
+                    $query->where('customer_id',$this->input('customer_id'));
+                    $query->where('asset_name',$this->input('asset_name'));
+                }),
+            ],
         ];
     }
 }
