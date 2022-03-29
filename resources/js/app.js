@@ -9,7 +9,6 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-Vue.component('search-customer-component', require('./components/SearchCustomerComponent.vue').default);
 Vue.component('v-select', vSelect);
 Vue.component('vue-select-component', require('./components/VueSelectComponent.vue').default);
 

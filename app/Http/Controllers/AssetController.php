@@ -24,6 +24,7 @@ class AssetController extends Controller
     {
         // DBよりURIパラメータと同じIDを持つAssetの情報を取得
         $asset = Asset::findOrFail($id);
+
         return view('asset/edit', compact('asset'));
     }
 

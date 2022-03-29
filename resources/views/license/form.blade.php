@@ -29,15 +29,10 @@
                             <div class="col-md-2 d-flex align-items-center"><label for="product_name">製品名</label></div>
                             <div class="col-md-6">
                                 @if($target == 'store')
-                                <input class="form-control" list="product_name" id="product_name_choice" name="product_name_choice" />
+                                <vue-select-component></vue-select-component>
                                 @elseif($target == 'update')
-                                <input class="form-control" list="product_name" id="product_name_choice" name="product_name_choice" value="{{ $license->product->product_name }}" />
+                                <vue-select-component :laravel-objects="{{ $license }}"></vue-select-component>
                                 @endif
-                                <datalist id="product_name">
-                                    @foreach($products as $product)
-                                    <option value="{{ $product->product_name }}" id="{{ $product->id }}"></option>
-                                    @endforeach
-                                </datalist>
                             </div>
                         </div>
                         <div class="form-group d-md-flex mb-2">
