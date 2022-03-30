@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="">
+    <div class="ms-2 mt-2">
         <!-- エラーメッセージ -->
         @include('customer/message')
 

@@ -33,7 +33,7 @@
         @endforeach
       </table>
     </div>
-    <div class="mb-4 text-end"><a href="/customer/create" class="btn btn-primary">新規作成</a></div>
+    <div class="mb-4 text-end pe-2"><a href="/customer/create" class="btn btn-primary">新規作成</a></div>
     <div class="mb-4 d-flex justify-content-center">{{ $customers->appends(request()->query())->links() }}</div>
   </div>
 </div>
