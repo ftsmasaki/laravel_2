@@ -21,5 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Route::get('/search_customer', [CustomerController::class, 'search_customer']);
-Route::get('/vue_select', [VueSelectController::class, 'vueSelect']);
+Route::get('/vue_select/license', [VueSelectController::class, 'vueSelectLicense']);
+Route::get('/vue_select/asset', [VueSelectController::class, 'vueSelectAsset']);

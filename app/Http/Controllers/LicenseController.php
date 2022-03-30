@@ -16,14 +16,9 @@ class LicenseController extends Controller
         // DBよりLicenseテーブルの値を全て取得
         $licenses = License::all();
         $licenses = License::sortable()->paginate(10);//1ページに10件表示
-       
-        //現在のページを変数に格納
-        //$current_page = 'license';
-        
+              
         // 取得した値をビュー「license/index」に渡す
         return view('license/index', compact('licenses'));
-        //return view('license/index')->with('licenses', $licenses); //withメソッドで渡す
-
     }
 
     public function edit($id)
@@ -31,16 +26,14 @@ class LicenseController extends Controller
         // DBよりURIパラメータと同じIDを持つLicenseの情報を取得
         $license = License::findOrFail($id);
 
-        // 取得した値をビュー「license/edit」に渡す
-        $products = Product::all();
-        return view('license/edit', compact('license','products'));
+        return view('license/edit', compact('license'));
         
     }
 
     public function update(LicenseRequest $request, $id)
     {
         $license = License::findOrFail($id);
-        $license->product_id = Product::where('product_name', $request->product_name_choice)->value('id');
+        $license->product_id = $request->product_id;
         $license->product_key = $request->product_key;
         $license->expire_date = $request->expire_date;
         $license->purchase_date = $request->purchase_date;
@@ -62,14 +55,14 @@ class LicenseController extends Controller
     public function create()
     {
         $license = new License();
-        $products = Product::all();
+        $products = Product::select('id', 'product_name')->get();
         return view('license/create', compact('license','products'));
     }
 
     public function store(LicenseRequest $request)
     {
         $license = new License();
-        $license->product_id = Product::where('product_name', $request->product_name_choice)->value('id');
+        $license->product_id = $request->product_id;
         $license->product_key = $request->product_key;
         $license->expire_date = $request->expire_date;
         $license->purchase_date = $request->purchase_date;
