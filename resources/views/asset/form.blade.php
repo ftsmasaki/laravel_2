@@ -24,6 +24,7 @@
                     <input type="hidden" name="_method" value="PUT">
                 @endif
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <input type="hidden" name="ignore_validation" value="{{ $asset->id }}">
                     <div class="mb-4">
                         <div class="form-group d-md-flex mb-2">
                             <div class="col-md-2 d-flex align-items-center"><label for="customer_name">顧客名</label></div>
