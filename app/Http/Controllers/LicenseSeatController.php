@@ -15,8 +15,8 @@ class LicenseSeatController extends Controller
         $license_seats = LicenseSeat::all();
         $license_seats = LicenseSeat::sortable()->paginate(10);//1ページに10件表示
        
-        // 取得した値をビュー「book/license」に渡す
-        return view('license/index')->with('license_seats', $license_seats);
+        // 取得した値をビュー「book/license_seat」に渡す
+        return view('license_seat/index')->with('license_seats', $license_seats);
     }
 
     public function edit($id)
@@ -25,7 +25,7 @@ class LicenseSeatController extends Controller
         $license_seat = LicenseSeat::findOrFail($id);
 
         // 取得した値をビュー「book/edit」に渡す
-        return view('license/edit', compact('license_seat'));
+        return view('license_seat/edit', compact('license_seat'));
         
     }
 
@@ -39,7 +39,7 @@ class LicenseSeatController extends Controller
         $license_seat->is_notify = $request->is_notify;
         $license_seat->save();
 
-        return redirect("/license");
+        return redirect("/license_seat");
     }
 
     public function destroy($id)
@@ -47,14 +47,14 @@ class LicenseSeatController extends Controller
         $license_seat = LicenseSeat::findOrFail($id);
         $license_seat->delete();
 
-        return redirect("/license");
+        return redirect("/license_seat");
     }
 
     public function create()
     {
         // 空の$license_seatを渡す
         $license_seat = new LicenseSeat();
-        return view('license/create', compact('license_seat'));
+        return view('license_seat/create', compact('license_seat'));
     }
 
     public function store(LicenseSeatRequest $request)
@@ -67,11 +67,6 @@ class LicenseSeatController extends Controller
         $license_seat->is_notify = $request->is_notify;
         $license_seat->save();
 
-        return redirect("/license");
-    }
-
-    public function show($id)
-    {
-        return view('license', ['license_seat' => LicenseSeat::findOrFail($id)]);
+        return redirect("/license_seat");
     }
 }

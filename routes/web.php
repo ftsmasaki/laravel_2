@@ -6,6 +6,7 @@ use App\Http\Controllers\LicenseController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AssetController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\LicenseSeatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,7 @@ Route::resource('license', LicenseController::class);
 Route::resource('product', ProductController::class);
 Route::resource('asset', AssetController::class);
 Route::resource('customer', CustomerController::class);
+Route::resource('license_seat', LicenseSeatController::class);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -6,8 +6,8 @@ use App\Http\Requests\LicenseRequest;
 use App\Http\Controllers\Controller;
 use App\Models\License;
 use App\Models\Product;
+use App\Models\LicenseSeat;
 use Illuminate\Pagination\Paginator;
-use Illuminate\Support\Facades\DB;
 
 class LicenseController extends Controller
 {
@@ -26,7 +26,10 @@ class LicenseController extends Controller
         // DBよりURIパラメータと同じIDを持つLicenseの情報を取得
         $license = License::findOrFail($id);
 
-        return view('license/edit', compact('license'));
+        // DBよりURIパラメータと同じIDを持つLicenseSeatの情報を取得
+        $license_seats = LicenseSeat::where('license_id', $id)->get();
+
+        return view('license/edit', compact('license', 'license_seats'));
         
     }
 
@@ -72,9 +75,4 @@ class LicenseController extends Controller
 
         return redirect("/license");
     }
-
-    // public function show($id)
-    // {
-    //     return view('license', ['license' => License::findOrFail($id)]);
-    // }
 }
