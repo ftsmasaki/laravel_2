@@ -16,8 +16,8 @@ class Customer extends Model
     public $sortable = [ 'id','customer_name' ];//ソートに使うカラムを指定
     
     //孫テーブルとのリレーションを定義
-    public function license_seat()
+    public function asset()
     {
-        return $this->hasManyThrough(LicenseSeat::class, Product::class);
+        return $this->hasMany(Asset::class);
     }
 }
