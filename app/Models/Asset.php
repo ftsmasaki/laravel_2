@@ -19,7 +19,7 @@ class Asset extends Model
         return $this->belongsTo(Customer::class);
     }
 
-    public function licenseseats()
+    public function license_seat()
     {
         return $this->hasMany(LicenseSeat::class);
     }

@@ -13,20 +13,23 @@ class LicenseController extends Controller
 {
     public function index()
     {
-        // DBよりLicenseテーブルの値を全て取得
+        // DBよりLicensesテーブルの値を全て取得
         $licenses = License::all();
         $licenses = License::sortable()->paginate(10);//1ページに10件表示
+
+        // DBよりLicenseSeatsテーブルの値を全て取得
+        $license_seats = LicenseSeat::all();
               
         // 取得した値をビュー「license/index」に渡す
-        return view('license/index', compact('licenses'));
+        return view('license/index', compact('licenses', 'license_seats'));
     }
 
     public function edit($id)
     {
-        // DBよりURIパラメータと同じIDを持つLicenseの情報を取得
+        // DBよりURIパラメータと同じIDを持つLicensesの情報を取得
         $license = License::findOrFail($id);
 
-        // DBよりURIパラメータと同じIDを持つLicenseSeatの情報を取得
+        // DBよりURIパラメータと同じIDを持つLicenseSeatsの情報を取得
         $license_seats = LicenseSeat::where('license_id', $id)->get();
 
         return view('license/edit', compact('license', 'license_seats'));

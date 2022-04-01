@@ -19,6 +19,12 @@ class LicenseSeatsTableSeeder extends Seeder
             ['license_id' => '1',
             'asset_id' => '1',
             'seat_memo' => '割り当てテスト１'],
+            ['license_id' => '2',
+            'asset_id' => '3',
+            'seat_memo' => '割り当てテスト２'],
+            ['license_id' => '4',
+            'asset_id' => '15',
+            'seat_memo' => '割り当てテスト３'],
         ];
 
         // 登録

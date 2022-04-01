@@ -52,6 +52,10 @@
                             <div class="col-md-6"><input type="number" class="form-control" name="seats" value="{{ $license->seats }}"></div>
                         </div>
                         <div class="form-group d-md-flex mb-2">
+                            <div class="col-md-2 d-flex align-items-center"><label for="email">メールアドレス</label></div>
+                            <div class="col-md-6"><input type="text" class="form-control" name="email" value="{{ $license->email }}"></div>
+                        </div>
+                        <div class="form-group d-md-flex mb-2">
                             <div class="col-md-2 d-flex align-items-center"><label for="is_notify">メール通知</label></div>
                             <div class="col-md-6">
                                 <input type="hidden" class="form-check-input" name="is_notify" value="0">

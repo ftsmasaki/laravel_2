@@ -15,8 +15,9 @@ class Product extends Model
     protected $fillable = [ 'id','product_name' ];
     public $sortable = [ 'id','product_name' ];//ソートに使うカラムを指定
 
-    public function licenses()
+    //孫テーブルとのリレーションを定義
+    public function license_seat()
     {
-        return $this->hasMany(License::class);
+        return $this->hasManyThrough(LicenseSeat::class, License::class);
     }
 }

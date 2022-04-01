@@ -29,6 +29,7 @@ class LicenseRequest extends FormRequest
             'expire_date' => 'required|date',
             'purchase_date' => 'required|date',
             'seats' => 'required|integer',
+            'email' => 'max:191',
         ];
     }
 }

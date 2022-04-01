@@ -6,12 +6,12 @@
       <table class="table text-center align-middle">
         <thead class="table-dark align-middle">
           <tr>
-            <th>@sortablelink('id', 'ID')</th>
+            <th>@sortablelink('id', 'ID*')</th>
             <th>@sortablelink('product_name', '製品名')</th>
-            <th>@sortablelink('product_key', 'プロダクトキー')</th>
+            <th>@sortablelink('license.product_key', 'プロダクトキー*')</th>
             <th>@sortablelink('customer_name', '顧客名')</th>
-            <th>@sortablelink('asset_name', '資産名')</th>
-            <th>@sortablelink('asset_user_name', 'ユーザー名')</th>
+            <th>@sortablelink('asset.asset_name', '資産名*')</th>
+            <th>@sortablelink('asset.asset_user_name', 'ユーザー名*')</th>
             <th>削除</th>
           </tr>
         </thead>

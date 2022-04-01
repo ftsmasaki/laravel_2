@@ -7,16 +7,23 @@
         <thead class="table-dark align-middle">
           <tr>
             <th>@sortablelink('id', 'ID')</th>
-            <th>@sortablelink('product_name', '製品名')</th>
+            <th>@sortablelink('product.product_name', '製品名')</th>
             <th>@sortablelink('product_key', 'プロダクトキー')</th>
             <th>@sortablelink('expire_date', '有効期限')</th>
             <th>@sortablelink('purchase_date', '購入日')</th>
             <th>割当数</th>
+            <th>使用中</th>
+            <th>メールアドレス</th>
             <th>通知</th>
             <th>削除</th>
           </tr>
         </thead>
         @foreach($licenses as $license)
+        <!-- 使用中のライセンス数：LicenseSeatsテーブルから件数を取得して変数に格納 -->
+        <?php 
+        $count_used_license = App\Models\LicenseSeat::countUsedLicense($license->id);
+        ?>
+
         <tr>
           <td>
             <a href="/license/{{ $license->id }}/edit" class="text-decoration-none">{{ $license->id }}</a>
@@ -26,6 +33,8 @@
           <td>{{ $license->expire_date }}</td>
           <td>{{ $license->purchase_date }}</td>
           <td>{{ $license->seats }}</td>
+          <td>{{ $count_used_license }}</td>
+          <td>{{ $license->email }}</td>
           <td>{{ $license->is_notify }}</td>
           <td>
             <form action="/license/{{ $license->id }}" method="post">

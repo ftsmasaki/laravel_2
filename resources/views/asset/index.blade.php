@@ -7,7 +7,7 @@
         <thead class="table-dark align-middle">
           <tr>
             <th>@sortablelink('id', 'ID')</th>
-            <th>@sortablelink('customer_name', '顧客名')</th>
+            <th>@sortablelink('customer.customer_name', '顧客名')</th>
             <th>@sortablelink('asset_name', '資産名')</th>
             <th>@sortablelink('asset_user_name', 'ユーザー名')</th>
             <th>削除</th>

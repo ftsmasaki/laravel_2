@@ -15,12 +15,13 @@ class License extends Model
     protected $fillable = [ 'id','product_name','product_key','expire_date','purchase_date' ];
     public $sortable = [ 'id','product_name','product_key','expire_date','purchase_date' ];//ソートに使うカラムを指定
 
+    //リレーション定義
     public function product()
     {
         return $this->belongsTo(Product::class);
     }
 
-    public function licenseseats()
+    public function license_seat()
     {
         return $this->hasMany(LicenseSeat::class);
     }
